@@ -16,4 +16,5 @@ export class ForecastItemComponent {
   constructor(private datePipe: DatePipe) { }
 
   dateTimeText = () => this.datePipe.transform(new Date(this.item.dt * 1000), 'yyyy年MM月dd日HH時mm分');
+  iconURL = () => `https://openweathermap.org/img/wn/${this.item.weather[0].icon}@2x.png`;
 }
