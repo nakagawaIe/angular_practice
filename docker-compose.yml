@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    working_dir: /work
+    ports:
+      - 4200:4200
+    volumes:
+      - ./:/work
+    tty: true
+    stdin_open: true
