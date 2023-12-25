@@ -1,4 +1,7 @@
 <section>
-  <h2>タイトル</h2>
-  <app-forecast-item *ngFor="let item of forecast" [item]="item" />
+  <h2 class="text">5日間の3時間天気予報</h2>
+  <div *ngFor="let forecastForTheDay of forecastMap | keyvalue">
+    <h3>{{ forecastForTheDay.key }}</h3>
+    <app-forecast-item *ngFor="let item of forecastForTheDay.value" [item]="item" />
+  </div>
 </section>
