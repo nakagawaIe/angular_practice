@@ -1,8 +1,4 @@
-FROM node:21-bullseye-slim
-RUN <<EOF
-  npm install -g @angular/cli
-  apt-get update
-  apt-get install git
-  npm install
-EOF
-EXPOSE 4200
+FROM node:20-bullseye-slim
+RUN npm install -g @angular/cli
+RUN apt-get update
+RUN apt-get install git -y
