@@ -22,8 +22,8 @@ export class ForecastComponent {
       appid: '4b56733000a1240e7c36803c5922770c',
       units: 'metric',
       id: 6940394,
-    }).then(data => {
-      this.forecastMap = this.groupByDate(data);
+    }).subscribe(data => {
+      this.forecastMap = this.groupByDate(data.list);
     });
   }
 
