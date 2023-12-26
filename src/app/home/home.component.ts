@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  count = 0;
 
+  countUp = () => this.count++;
+
+  countDown = () => {
+    if (this.count === 0) return;
+    this.count--;
+  }
+
+  reset = () => this.count = 0;
 }
