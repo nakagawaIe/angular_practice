@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .items {
   width: 100%;
   display: flex;
@@ -5,5 +7,5 @@
 }
 
 .item {
-  width: calc(percentage(1 / 8) - 25px);
+  width: calc(percentage(math.div(1, 8)) - 25px);
 }
