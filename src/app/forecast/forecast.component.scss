@@ -1,0 +1,9 @@
+.items {
+  width: 100%;
+  display: flex;
+  column-gap: 25px;
+}
+
+.item {
+  width: calc(percentage(1 / 8) - 25px);
+}

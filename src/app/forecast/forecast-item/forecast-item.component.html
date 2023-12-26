@@ -1,6 +1,6 @@
 <p>{{ timeText() }}</p>
 <p><img [src]="iconURL()" [alt]="item.weather[0].main"></p>
-<p>気温：{{ item.main.temp }}℃（最高{{ item.main.temp_max }}℃ / 最低{{ item.main.temp_min }}℃）</p>
+<p>気温：{{ item.main.temp }}℃</p>
 <p>湿度：{{ item.main.humidity }}%</p>
-<p>降水確率：{{ item.pop }}%</p>
-<p>風速：{{ item.wind.speed }}m/s（風向：{{ item.wind.deg }}°）</p>
+<p>降水：{{ item.pop }}%</p>
+<p>風：<span class="direction" [style.transform]="'rotate(' + item.wind.deg + 'deg)'">↓</span>（{{ item.wind.speed }}m）</p>
