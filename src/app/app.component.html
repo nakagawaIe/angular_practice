@@ -1,12 +1,6 @@
 <header>
   <h1 class="title">Angular Practice</h1>
-  <nav>
-    <ul class="navigation">
-      <li><a [routerLink]="['/']">HOME</a></li>
-      <li><a [routerLink]="['forecast']">天気予報</a></li>
-      <li><a [routerLink]="['todo']">Todoリスト</a></li>
-    </ul>
-  </nav>
+  <app-navigation />
 </header>
 <main>
   <router-outlet></router-outlet>

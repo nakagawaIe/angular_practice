@@ -7,7 +7,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'My Angular App',
+    title: 'Home',
   },
   {
     path: 'forecast',
