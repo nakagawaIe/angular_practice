@@ -1,31 +1,35 @@
 import { Component } from '@angular/core';
-import { TodoStore } from './todo.store';
+import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { ITodoState, selectTodoesItems } from './reducers/todo.reducer';
+import { add, remove } from './actions/todo.actions';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  providers: [TodoStore],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'
 })
 export class TodoComponent {
-  constructor(private todoStore: TodoStore) {}
+  constructor(private store: Store) {
+    this.todoes$ = store.select(selectTodoesItems);
+  }
 
-  readonly todoes$ = this.todoStore.todoes$;
+  todoes$: Observable<ITodoState['todoes']>;
 
   body = new FormControl('');
 
   addTodo() {
     const { value } = this.body;
     if (!value) return;
-    this.todoStore.add(value);
+    this.store.dispatch(add({ body: value }));
     this.body.reset();
   }
 
   deleteTodo(id: number) {
-    this.todoStore.delete(id);
+    this.store.dispatch(remove({ id }));
   }
 }
