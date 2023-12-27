@@ -14,22 +14,24 @@ export interface IForecastItem {
     temp_max: number;
     /** 最低気温 */
     temp_min: number;
-  }
+  };
   /** 降水確率 */
   pop: number;
   sys: {
     /** 昼か夜か */
     pod: 'n' | 'd';
-  }
-  weather: [{
-    description: string;
-    icon: string;
-    id: number;
-    main: string;
-  }];
+  };
+  weather: [
+    {
+      description: string;
+      icon: string;
+      id: number;
+      main: string;
+    },
+  ];
   wind: {
     deg: number;
     gust: number;
     speed: number;
-  }
+  };
 }

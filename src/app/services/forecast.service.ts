@@ -3,16 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { IForecastItem } from '../types/forecast';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ForecastService {
   private url = 'https://api.openweathermap.org/data/2.5/forecast';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   fetchForecast(params: IForecastRequestParams) {
     // paramsをレコードとしてURLSearchParamsに渡したいが、型が合わないので変換する
-    const map = (Object.keys(params) as (keyof IForecastRequestParams)[]).map(k => [k, `${params[k]}`]);
+    const map = (Object.keys(params) as (keyof IForecastRequestParams)[]).map(k => [
+      k,
+      `${params[k]}`,
+    ]);
     const searchParam = new URLSearchParams(map);
     return this.http.get<IForecastResponse>(`${this.url}?${searchParam.toString()}`);
   }
@@ -29,4 +32,3 @@ interface IForecastRequestParams {
 interface IForecastResponse {
   list: IForecastItem[];
 }
-

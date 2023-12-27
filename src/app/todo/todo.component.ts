@@ -11,7 +11,7 @@ import { add, remove } from './actions/todo.actions';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './todo.component.html',
-  styleUrl: './todo.component.scss'
+  styleUrl: './todo.component.scss',
 })
 export class TodoComponent {
   constructor(private store: Store) {

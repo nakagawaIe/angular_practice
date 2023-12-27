@@ -6,7 +6,6 @@ import { CounterComponent } from '../counter/counter.component';
   standalone: true,
   imports: [CounterComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-}
+export class HomeComponent {}

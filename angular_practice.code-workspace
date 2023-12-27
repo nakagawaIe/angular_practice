@@ -14,13 +14,8 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     },
-    "eslint.validate": [
-      "typescript",
-      "typescriptreact",
-      "javascript",
-      "javascriptreact"
-    ],
-    "prettier.configPath": ".prettierrc"
+    "eslint.validate": ["typescript", "typescriptreact", "javascript", "javascriptreact"],
+    "prettier.configPath": ".prettierrc.json"
   },
   "extensions": {
     "recommendations": [
