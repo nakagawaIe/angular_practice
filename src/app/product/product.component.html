@@ -1,7 +1,7 @@
 <section>
   <h2>商品一覧</h2>
   <ul class="items">
-    <li *ngFor="let item of products" class="item">
+    <li *ngFor="let item of products$ | async" class="item">
       <a routerLink="/products/{{item.id}}">
         <p>{{ item.title }}</p>
         <p><img [src]="item.image" [alt]="item.title" class="image"></p>
