@@ -11,4 +11,8 @@ export class ProductService {
   fetchProducts() {
     return this.http.get<IProduct[]>(`${this.url}`);
   }
+
+  fetchProduct(id: number) {
+    return this.http.get<IProduct>(`${this.url}/${id}`);
+  }
 }

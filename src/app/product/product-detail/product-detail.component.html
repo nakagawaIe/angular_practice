@@ -1,1 +1,18 @@
-<p>id: {{ id }}<br />product-detail works!</p>
+<ng-container *ngIf="status === 'fetched';else loading">
+  <div *ngIf="item; else none">
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.description }}</p>
+    <p><img [src]="item.image" [alt]="item.title"></p>
+    <p>{{ item.price }}$</p>
+    <p>{{ item.category }}</p>
+  </div>
+
+  <ng-template #none>
+    <p>指定された商品は見つかりません</p>
+  </ng-template>
+</ng-container>
+
+<ng-template #loading>
+  <p>ロード中</p>
+</ng-template>
+
