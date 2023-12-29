@@ -11,5 +11,5 @@ import { routes } from '../app.routes';
   styleUrl: './navigation.component.scss',
 })
 export class NavigationComponent {
-  routes = routes;
+  routes = routes.filter(r => !r.path?.includes(':id'));
 }
