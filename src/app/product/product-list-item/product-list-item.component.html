@@ -1,0 +1,6 @@
+<a routerLink="/products/{{item.id}}" class="root">
+  <p>{{ item.title }}</p>
+  <p><img [src]="item.image" [alt]="item.title" class="image"></p>
+  <p class="price">{{ item.price }}$</p>
+  <p class="category">{{ item.category }}</p>
+</a>
