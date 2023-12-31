@@ -1,5 +1,9 @@
 <section>
   <h2>商品一覧</h2>
+  <button (click)="toggleShowForm()">
+    {{ (isShowForm$ | async) ? '閉じる' : '新規追加' }}
+  </button>
+  <app-product-form *ngIf="isShowForm$ | async;" />
   <ul class="items">
     <li *ngFor="let item of products$ | async" class="item">
       <app-product-list-item [item]="item" />

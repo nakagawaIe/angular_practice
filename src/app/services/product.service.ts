@@ -9,10 +9,14 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   fetchProducts() {
-    return this.http.get<IProduct[]>(`${this.url}`);
+    return this.http.get<IProduct[]>(this.url);
   }
 
   fetchProduct(id: number) {
     return this.http.get<IProduct>(`${this.url}/${id}`);
+  }
+
+  postProduct(params: Omit<IProduct, 'id'>) {
+    return this.http.post<IProduct>(this.url, params);
   }
 }

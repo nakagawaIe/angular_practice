@@ -1,0 +1,26 @@
+<form [formGroup]="productForm" (ngSubmit)="post()">
+  <p>
+    <label for="title">Title: </label>
+    <input id="title" type="text" formControlName="title">
+  </p>
+  <p>
+    <label for="description">Description: </label>
+    <input id="description" type="text" formControlName="description">
+  </p>
+  <p>
+    <label for="price">Price: </label>
+    <input id="price" type="text" formControlName="price">
+  </p>
+  <p>
+    <label for="image">Image: </label>
+    <input id="image" type="text" formControlName="image">
+  </p>
+  <p>
+    <label for="category">Category: </label>
+    <input id="category" type="text" formControlName="category">
+  </p>
+  <p>
+    <input type="submit" [disabled]="!productForm.valid || status === 'submit'">
+  </p>
+  <p *ngIf="status === 'done'">登録完了しました</p>
+</form>
