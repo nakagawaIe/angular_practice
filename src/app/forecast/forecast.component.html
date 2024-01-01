@@ -1,5 +1,6 @@
 <section>
   <h2 class="text">5日間の3時間天気予報</h2>
+  <p>{{ city }}</p>
   <div *ngFor="let forecastForTheDay of forecastMap | keyvalue">
     <h3>{{ forecastForTheDay.key }}</h3>
     <div class="items">

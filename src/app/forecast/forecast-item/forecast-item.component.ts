@@ -17,4 +17,5 @@ export class ForecastItemComponent {
 
   timeText = () => this.datePipe.transform(new Date(this.item.dt * 1000), 'HH時');
   iconURL = () => `https://openweathermap.org/img/wn/${this.item.weather[0].icon}@2x.png`;
+  calcPop = () => Math.round(100 * this.item.pop);
 }

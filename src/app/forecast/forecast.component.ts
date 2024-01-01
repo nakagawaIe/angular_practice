@@ -16,17 +16,23 @@ import { ForecastItemComponent } from './forecast-item/forecast-item.component';
 export class ForecastComponent {
   forecastMap: Map<string, IForecastItem[]> = new Map();
   forecastService: ForecastService = inject(ForecastService);
+  city: string = '';
 
   constructor(private datePipe: DatePipe) {
-    this.forecastService
-      .fetchForecast({
-        appid: '4b56733000a1240e7c36803c5922770c',
-        units: 'metric',
-        id: 6940394,
-      })
-      .subscribe(data => {
-        this.forecastMap = this.groupByDate(data.list);
-      });
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords;
+      this.forecastService
+        .fetchForecast({
+          appid: '4b56733000a1240e7c36803c5922770c',
+          units: 'metric',
+          lat: latitude,
+          lon: longitude,
+        })
+        .subscribe(data => {
+          this.forecastMap = this.groupByDate(data.list);
+          this.city = data.city.name;
+        });
+    });
   }
 
   private groupByDate = (forecast: IForecastItem[]) =>

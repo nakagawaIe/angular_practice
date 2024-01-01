@@ -24,11 +24,14 @@ export class ForecastService {
 interface IForecastRequestParams {
   appid: string;
   units: string;
-  lat?: string;
-  lon?: string;
+  lat?: number;
+  lon?: number;
   id?: number;
 }
 
 interface IForecastResponse {
   list: IForecastItem[];
+  city: {
+    name: string;
+  };
 }
