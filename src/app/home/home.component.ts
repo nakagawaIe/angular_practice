@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CounterComponent } from '../counter/counter.component';
 
 @Component({
@@ -8,4 +8,12 @@ import { CounterComponent } from '../counter/counter.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  constructor() {
+    console.log('constructor');
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit');
+  }
+}
