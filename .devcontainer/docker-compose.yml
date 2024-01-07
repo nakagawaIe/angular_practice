@@ -1,10 +1,11 @@
 services:
   app:
+    container_name: angular_practice-app-1
     build: .
     working_dir: /work
     ports:
       - 4200:4200
     volumes:
-      - ./:/work
+      - ../:/work
     tty: true
     stdin_open: true
